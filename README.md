@@ -21,10 +21,21 @@
 
 #### How to install
 
+* Clone & Install
+
 ```sh
 git clone ...........
 cd da_design_server_학번
 pip3 install -r requirements.txt
+```
+
+* Append two lines to `~/.bashrc` file.
+
+```sh
+export PYTHONPATH=$PYTHONPATH:/home/u1000/da_design_server2/
+Ctrl+d
+
+~$ source ~/.bashrc
 ```
 
 
