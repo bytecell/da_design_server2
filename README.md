@@ -29,10 +29,10 @@ cd da_design_server_학번
 pip3 install -r requirements.txt
 ```
 
-* Append two lines to `~/.bashrc` file.
+* Append a python path to `~/.bashrc` file.
 
 ```sh
-export PYTHONPATH=$PYTHONPATH:/home/u1000/da_design_server2/
+export PYTHONPATH=$PYTHONPATH:/home/u1000/
 Ctrl+d
 
 ~$ source ~/.bashrc
@@ -62,4 +62,5 @@ TODO
 ### License
 
 Apache-2.0
+
 
