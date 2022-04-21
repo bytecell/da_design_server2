@@ -38,6 +38,8 @@ Ctrl+d
 ~$ source ~/.bashrc
 ```
 
+* Install MongoDB >= 5.0.7
+
 
 ---
 
