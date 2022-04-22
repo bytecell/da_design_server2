@@ -22,7 +22,7 @@ def test_config():
     :return: test result.
     :rtype: bool
     """
-    from src import myconfig
+    from da_design_server2.src import myconfig
     try:
         m = myconfig.get_config('/home/u1000/da_design_server2/share/test.config')
         print('key1=', m['general'].get('key1'))
