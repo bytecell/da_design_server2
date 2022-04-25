@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template
+from flask_cors import CORS
 import os
 from da_design_server2.src import mylogger, myconfig
 import pdb
 
 app = Flask(__name__)
+CORS(app)
 
 # create a logger.
 project_root_path = os.getenv("DA_DESIGN_SERVER")
@@ -19,3 +21,7 @@ def web_main():
 @app.route('/help')
 def web_help():
     return render_template("help.html")
+
+@app.route('/list')
+def web_list():
+    return render_template("list.html")
