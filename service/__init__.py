@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from flask_cors import CORS
+from bson import json_util
 import datetime
 import os
 from da_design_server2.src import mylogger, myconfig, mydb
@@ -24,6 +25,18 @@ def web_main():
 def web_help():
     return render_template("help.html")
 
+@app.route('/list')
+def web_list():
+    ret = get_list_topk(10)
+    ret_json = json_util.dumps(ret, ensure_ascii=False)
+    return render_template("list.html",
+        list_info=ret_json)
+
+def get_list_topk(topk):
+    today_date = datetime.datetime.now()
+    result = db.get_company_value_of_date(today_date, topk)
+    return result
+
 @app.route('/api-list', methods=["POST"])
 def api_list():
     top_k = request.json.get('top_k')
@@ -32,8 +45,7 @@ def api_list():
     ret = {"result": None, "msg": ""}
     if top_k:
         top_k = int(top_k)
-        today_date = datetime.datetime.now()
-        result = db.get_company_value_of_date(today_date)
+        result = get_list_topk(top_k)
         if result:
             ret["result"] = result
         else:
@@ -63,7 +75,4 @@ def api_predict():
     logger.info('< API:list with {}'.format(ret))
     return ret
 
-@app.route('/list')
-def web_list():
-    return render_template("list.html")
 
