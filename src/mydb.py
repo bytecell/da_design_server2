@@ -114,11 +114,13 @@ class mydb:
                     break
         return predicted_value
 
-    def get_company_value_of_date(self, the_date):
+    def get_company_value_of_date(self, the_date, topk=10):
         """Get company-value(of the day) pairs.
 
         :param the_date: the date we want to get pairs.
         :type the_date: datetime.datetime
+        :param topk: top-k items
+        :type topk: int
         :return: company-value pairs.
         :rtype: dict
         """
@@ -130,6 +132,8 @@ class mydb:
                 d, v = cstock['date'], cstock['value']
                 if the_date.date() == d.date():
                     ret[c['name']] = v
+                    if len(ret) >= topk:
+                        return ret
         return ret
 
 if __name__ == '__main__':
