@@ -158,4 +158,6 @@ if __name__ == '__main__':
 
     result = db.get_predicted_company_stock('삼성전자', logger)
     print('삼성전자 내일 주식:', result)
-        
+       
+
+print("My DB!")
