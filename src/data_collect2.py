@@ -11,8 +11,6 @@ def crawl_stock(logger, limit=30):
 
     :param logger: logger instance
     :type logger: logging.Logger
-    :param market: "kospi" or "kosdaq" (default "kospi")
-    :type marget: str
     :param limit: maximum # of items (default 30), NEVER > 30 because this is just a copy webpage
     :type limit: int
     :return: pairs of {company: stock}
