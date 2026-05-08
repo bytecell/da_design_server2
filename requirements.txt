@@ -3,3 +3,4 @@ flask == 2.1.1
 beautifulsoup4 == 4.11.1
 pymongo == 4.1.1
 werkzeug==2.3.8
+flask-cors==3.0.10
